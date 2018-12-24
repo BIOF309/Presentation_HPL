@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="extract-useful-data-from-rna-seq-results-in-amir396-and-sttm396-transgenic-tomato-fruits" class="slide section level4">
+<h4>Extract useful data from RNA-seq results in amiR396 and STTM396 transgenic tomato fruits</h4>
+<pre><code>                         Haiping Liu Ph.D</code></pre>
+</div>
+<div id="introduction" class="slide section level4">
+<h4>Introduction</h4>
+<ul>
+<li>Material</li>
+</ul>
+<p>RNA-seq results from amiR396 (miR396 overexpressed) and STTM396 (miR396 being silenced) tomato fruits</p>
+<ul>
+<li>Objective</li>
+</ul>
+<p>Visualization of RNA-seq data, especially extract differentially expressed genes I am interested in.</p>
+</div>
+<div id="overview" class="slide section level4">
+<h4>Overview</h4>
+<ol style="list-style-type: decimal">
+<li>Import CVS file</li>
+<li>Evaluation the quality of RNA-seq results (histogram)</li>
+<li>Display how many genes are differentially expressed (how many up- or down-regulated).</li>
+<li>Display genes with annotation containing targeted words</li>
+</ol>
+</div>
+<div id="load-the-libraries-and-read-csv-file" class="slide section level4">
+<h4>Load the libraries and read CSV file</h4>
+<pre><code>#load the libraries
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import pandas as pd
+import numpy as np
+
+#Read CVS file form local
+df = pd.read_csv(&#39;/Users/haipingliu/Desktop/BiOF309/Final_project/
+DEG_anno.csv&#39;)</code></pre>
+</div>
+<div id="display-how-many-genes-are-differentially-expressed" class="slide section level4">
+<h4>Display how many genes are differentially expressed</h4>
+<p><img src="image\gene_N_columns.png" width="1200"></p>
+</div>
+<div id="display-how-many-genes-have-fold-change-above-2" class="slide section level4">
+<h4>Display how many genes have fold change above 2</h4>
+<p><img src="image\N_Fold2.png" width="1000"> <img src="image\Head_Fold2.png" width="600"></p>
+</div>
+<div id="display-up-regulated-genes-in-sttm396-fruits" class="slide section level4">
+<h4>Display up-regulated genes in STTM396 fruits</h4>
+<p><img src="image\OE_N.png" width="1200"> <img src="image\OE_head.png" width="1200"></p>
+</div>
+<div id="display-down-regulated-genes-in-sttm396-fruits" class="slide section level4">
+<h4>Display down-regulated genes in STTM396 fruits</h4>
+<p><img src="image\D_N.png" width="1200"> <img src="image\D_head.png" width="1200"></p>
+</div>
+<div id="rna-seq-result-follows-standard-normal-distribution-histogram" class="slide section level4">
+<h4>RNA-seq result follows standard normal distribution (histogram)</h4>
+<p><img src="image\his_distribution.png" width="700"></p>
+</div>
+<div id="volcanol-plot-for-rna-seq-results" class="slide section level4">
+<h4>volcanol plot for RNA-seq results</h4>
+<p>Codes for creating volcano plot of RNA-seq resutls</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df_vol <span class="op">=</span> df.loc[:,[<span class="st">&#39;Gene_ID&#39;</span>,<span class="st">&#39;Fold_change&#39;</span>,<span class="st">&#39;p_value&#39;</span>]]
+df_vol[<span class="st">&#39;-log10p_value&#39;</span>] <span class="op">=</span> np.log10(<span class="dv">1</span><span class="op">/</span>df[<span class="st">&#39;p_value&#39;</span>])
+df_vol.plot(kind<span class="op">=</span><span class="st">&#39;scatter&#39;</span>,
+           x<span class="op">=</span><span class="st">&#39;Fold_change&#39;</span>, 
+           y<span class="op">=</span><span class="st">&#39;-log10p_value&#39;</span>, color <span class="op">=</span> <span class="st">&#39;c&#39;</span>)
+plt.title(<span class="st">&quot;Volcano Plot&quot;</span>)
+plt.xlabel(<span class="st">&#39;log2 Fold Change in Expression&#39;</span>)
+plt.ylabel(<span class="st">&#39;-log10 Adjusted pvalue&#39;</span>)
+plt.axis([<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">18</span>])
+plt.show()</code></pre></div>
+</div>
+<div id="graphical-view-of-volcano-plot" class="slide section level4">
+<h4>Graphical view of volcano plot</h4>
+<p><img src="image\Volcanoplot.png" width="700"></p>
+</div>
+<div id="extract-interested-genes-related-with-sweetness-of-fruits" class="slide section level4">
+<h4>Extract interested genes related with sweetness of fruits</h4>
+<ul>
+<li>Sugar <img src="image\Sugar.png" width="1300"></li>
+</ul>
+</div>
+<div id="starch" class="slide section level4">
+<h4>Starch</h4>
+<p><img src="image\Starch.png" width="1300"></p>
+</div>
+<div id="sucrose" class="slide section level4">
+<h4>Sucrose</h4>
+<p><img src="image\Sucrose.png" width="1200"></p>
+</div>
+<div id="cobine-all-the-genes-related-with-sweetness" class="slide section level4">
+<h4>Cobine all the genes related with sweetness</h4>
+<p><img src="image\combine_code.png" width="1200"> <img src="image\combined_genes.png" width="800"></p>
+</div>
+<div id="write-a-csv-file-from-dataframe" class="slide section level4">
+<h4>Write a CSV file from DataFrame</h4>
+<pre><code>Sugar_gene.to_csv(&#39;Sugar_gene.csv&#39;)</code></pre>
+<p><img src="image\sugar_genes_CVS.png" width="1200"></p>
+</div>
+<div id="get-targeted-columns-fpkm-values-for-two-samples-from-sugar_gene" class="slide section level4">
+<h4>Get targeted columns (FPKM values for two samples) from &quot;Sugar_gene&quot;</h4>
+<p><img src="image\FPKM.png" width="1200"></p>
+</div>
+<div id="heatmap-for-expression-of-sweetness-related-genes" class="slide section level4">
+<h4>Heatmap for expression of sweetness-related genes</h4>
+<pre><code>Heatmap for expression of sweetness-related genes (codes)
+
+df_FPKM_index = df_FPKM.set_index(&#39;Gene_ID&#39;)
+sns.clustermap(df_FPKM_index,
+              z_score=1,
+              metric=&quot;euclidean&quot;,
+              method=&quot;ward&quot;,
+              cmap=&quot;Blues&quot;,
+              annot=True,
+              linewidths=1.0)
+plt.show()</code></pre>
+</div>
+<div id="output-for-heatmap" class="slide section level4">
+<h4>Output for heatmap</h4>
+<p><img src="image\Heatmap.png" width="700"></p>
+</div>
+<div id="conclusion" class="slide section level4">
+<h4>Conclusion</h4>
+<ol style="list-style-type: decimal">
+<li>RNA-seq result is fine</li>
+<li>18 genes related with fruit sweetness are differentially expressed between amiR396 and STTM396 transgenic fruits.</li>
+</ol>
+</div>
+</body>
+</html>
